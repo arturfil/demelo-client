@@ -1,0 +1,26 @@
+nav {
+  background-color: #6941E1;
+}
+.navbar-header a {
+  color: white;
+  text-transform: uppercase;
+}
+a {
+  color: black;
+}
+.dropdown-menu {
+  background-color: #6941E1;
+  color: black;
+}
+.dropdown-menu a {
+  color: black;
+}
+.navbar-nav a {
+  color: whitesmoke;
+}
+.navbar-inverse .navbar-nav>.active>a {
+  background-color: #5242E2;
+}
+.navbar-inverse .navbar-nav>.open>a {
+  background-color: #5242E2;
+}
