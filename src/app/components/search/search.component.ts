@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { SpotifyApiService } from '../../services/spotify-api.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-search',
@@ -9,7 +10,8 @@ import { SpotifyApiService } from '../../services/spotify-api.service';
 })
 export class SearchComponent implements OnInit {
 
-  searchStr: string;
+  queryInput: any;
+  tracks: any[];
 
   constructor(
     private spotifyThang: SpotifyApiService
@@ -18,11 +20,14 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  searchMusic() {
-    this.spotifyThang.searchMusic(this.searchStr)
-      .subscribe(res => {
-        console.log(res.artists.items);
-      })
+  querySubmit() {
+    console.log(this.queryInput);
+    this.spotifyThang.getQuery(this.queryInput)
+      .subscribe(
+        (tracksFromApi: any) => {
+          this.tracks = tracksFromApi;
+        }
+      )
   }
 
 }
